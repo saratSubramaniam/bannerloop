@@ -710,21 +710,6 @@ rights grant found at http://polymer.github.io/PATENTS.txt
             gwdAd.initAd();
           }, 1);
         });
-
-        var svgEl,
-          widthPercentage = 30, heightPercentage = 30;
-
-        // For el1 - start
-        svgEl = document.getElementById('gwd-transitiongallery_2');
-
-        var currentWidth = parseInt(svgEl.getElementsByTagName('canvas')[0].style.width),
-          currentHeight = parseInt(svgEl.getElementsByTagName('canvas')[0].style.height);
-
-        svgEl.getElementsByTagName('canvas')[0].style.width = currentWidth * (100 - widthPercentage) / 100 + 'px';
-        svgEl.getElementsByTagName('canvas')[0].style.height = currentHeight * (100 - widthPercentage) / 100 + 'px';
-        svgEl.getElementsByTagName('canvas')[0].style.paddingLeft = currentWidth * widthPercentage / 200 + 'px';
-        svgEl.getElementsByTagName('canvas')[0].style.paddingTop = currentHeight * heightPercentage / 200 + 'px';
-        // For el1 - end
       }
 
       /**
@@ -732,7 +717,22 @@ rights grant found at http://polymer.github.io/PATENTS.txt
        * initialized and before the default page of the Ad is shown.
        */
       function handleAdInitialized(event) {
+        setTimeout(function () {
+          var svgEl,
+            widthPercentage = 30, heightPercentage = 30;
 
+          // For el1 - start
+          svgEl = document.getElementById('gwd-transitiongallery_2');
+
+          var currentWidth = parseInt(svgEl.getElementsByTagName('canvas')[0].style.width),
+            currentHeight = parseInt(svgEl.getElementsByTagName('canvas')[0].style.height);
+
+          svgEl.getElementsByTagName('canvas')[0].style.width = currentWidth * (100 - widthPercentage) / 100 + 'px';
+          svgEl.getElementsByTagName('canvas')[0].style.height = currentHeight * (100 - widthPercentage) / 100 + 'px';
+          svgEl.getElementsByTagName('canvas')[0].style.paddingLeft = currentWidth * widthPercentage / 200 + 'px';
+          svgEl.getElementsByTagName('canvas')[0].style.paddingTop = currentHeight * heightPercentage / 200 + 'px';
+          // For el1 - end
+        }, 1);
       }
 
       window.addEventListener('DOMContentLoaded',
