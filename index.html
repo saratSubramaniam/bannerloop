@@ -710,19 +710,13 @@ rights grant found at http://polymer.github.io/PATENTS.txt
             gwdAd.initAd();
           }, 1);
         });
-      }
 
-      /**
-       * Handles the event that is dispatched after the Ad has been
-       * initialized and before the default page of the Ad is shown.
-       */
-      function handleAdInitialized(event) {
-        var svgEl;
+        var svgEl,
+          widthPercentage = 30, heightPercentage = 30;
 
         // For el1 - start
         svgEl = document.getElementById('gwd-transitiongallery_2');
 
-        var widthPercentage = 30, heightPercentage = 30;
         var currentWidth = parseInt(svgEl.getElementsByTagName('canvas')[0].style.width),
           currentHeight = parseInt(svgEl.getElementsByTagName('canvas')[0].style.height);
 
@@ -731,6 +725,14 @@ rights grant found at http://polymer.github.io/PATENTS.txt
         svgEl.getElementsByTagName('canvas')[0].style.paddingLeft = currentWidth * widthPercentage / 200 + 'px';
         svgEl.getElementsByTagName('canvas')[0].style.paddingTop = currentHeight * heightPercentage / 200 + 'px';
         // For el1 - end
+      }
+
+      /**
+       * Handles the event that is dispatched after the Ad has been
+       * initialized and before the default page of the Ad is shown.
+       */
+      function handleAdInitialized(event) {
+
       }
 
       window.addEventListener('DOMContentLoaded',
